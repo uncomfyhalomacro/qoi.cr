@@ -75,15 +75,15 @@ module Qoi
   end
 
   struct QOIHeader
-    property width    : UInt32
-    property height   : UInt32
-    channels          : QOIChannel
-    colorspace        : QOIColorSpace
+    property width            : UInt32
+    property height           : UInt32
+    property channels         : QOIChannel
+    property colorspace       : QOIColorSpace
     def initialize(@width, @height, @channels, @colorspace)
-      width      == 0 && throw_invalid_header_width
-      height     == 0 && throw_invalid_header_height
-      channels   == 0 && throw_invalid_header_channels
-      colorspace < 3 || channels > 4 && throw_invalid_header_colorspace
+      width      == 0 && throw_invalid_header_width(width)
+      height     == 0 && throw_invalid_header_height(height)
+      channels.value < 3 || channels.value > 4 && throw_invalid_header_channels(channels)
+      colorspace.value > 1 && throw_invalid_header_colorspace(colorspace)
     end
   end
 end
