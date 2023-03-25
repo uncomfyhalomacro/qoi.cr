@@ -1,9 +1,6 @@
 require "./spec_helper"
-
 describe Qoi do
-  # TODO: Write tests
-
-  it "works" do
-    false.should eq(true)
+  it "is okay" do
+    Qoi::QOI_MAGIC.should eq 0x716f6966
   end
 end
