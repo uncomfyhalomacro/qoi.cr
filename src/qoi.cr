@@ -22,44 +22,12 @@ module Qoi
     property g : UInt8
     property b : UInt8
     property a : UInt8
-    def initialize(@r, @g, @b, @a)
+    def initialize(@r : UInt8, @g : UInt8, @b : UInt8, @a : UInt8)
     end
   end
 
   def _qoi_color_hash(p : Pixel)
     p.r * 3 + p.g * 5 + p.b * 7 + p.a * 11
-  end
-
-  # Exceptions
-
-  class QOIError < Exception
-    def initialize(msg : String)
-      super "#{msg}"
-    end
-  end
-
-  def throw_magic_bytes_error(magic : UInt32)
-    raise QOIError.new "invalid magic bytes, got #{magic}, expected #{QOI_MAGIC}."
-  end
-
-  def throw_invalid_header_width(width : UInt32)
-    raise QOIError.new "invalid width in header, got #{width}"
-  end
-
-  def throw_invalid_header_height(height : UInt32)
-    raise QOIError.new "invalid height in header, got #{height}"
-  end
-
-  def throw_invalid_header_channels(channels : UInt8)
-    raise QOIError.new "invalid channels in header, got #{channels}"
-  end
-
-  def throw_invalid_header_colorspace(colorspace : UInt8)
-    raise QOIError.new "invalid colorspace in header, got #{colorspace}"
-  end
-
-  def throw_unexpected_eof()
-    raise QOIError.new "unexepcted end of file"
   end
 
   # QOIHeader
@@ -80,18 +48,48 @@ module Qoi
     getter channels         : QOIChannel
     getter colorspace       : QOIColorSpace
     def initialize(@width : UInt32, @height : UInt32, @channels : QOIChannel, @colorspace : QOIColorSpace)
-      if @width == 0 
-        raise QOIError.new "invalid width in header, got #{width}"
+      if @width == 0
+        throw_invalid_header_width(@width)
       end
       if @height == 0 
-        raise QOIError.new "invalid height in header, got #{height}"
+        throw_invalid_header_height(@height)
       end
       if 4 < @channels.value < 3
-        raise QOIError.new "invalid channels in header, got #{channels}"
+        throw_invalid_header_channels(@channels.value)
       end
       if @colorspace.value > 1
-        raise QOIError.new "invalid colorspace in header, got #{colorspace}"
+        throw_invalid_header_colorspace(@colorspace.value)
       end
+    end
+
+    class QOIError < Exception
+      def initialize(msg : String)
+        super "#{msg}"
+      end
+    end
+
+    def throw_magic_bytes_error(magic : UInt32)
+      raise QOIError.new "invalid magic bytes, got #{magic}, expected #{QOI_MAGIC}."
+    end
+
+    def throw_invalid_header_width(width : UInt32)
+      raise QOIError.new "invalid width in header, got #{width}"
+    end
+
+    def throw_invalid_header_height(height : UInt32)
+      raise QOIError.new "invalid height in header, got #{height}"
+    end
+
+    def throw_invalid_header_channels(channels : UInt8)
+      raise QOIError.new "invalid channels in header, got #{channels}"
+    end
+
+    def throw_invalid_header_colorspace(colorspace : UInt8)
+      raise QOIError.new "invalid colorspace in header, got #{colorspace}"
+    end
+
+    def throw_unexpected_eof()
+      raise QOIError.new "unexepcted end of file"
     end
   end
 end
