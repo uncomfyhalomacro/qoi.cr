@@ -51,7 +51,7 @@ module Qoi
   end
 
   def throw_invalid_header_channels(channels : UInt8)
-    raise QOIError.new "invalid channels in header, got #{channel8}"
+    raise QOIError.new "invalid channels in header, got #{channels}"
   end
 
   def throw_invalid_header_colorspace(colorspace : UInt8)
@@ -75,15 +75,23 @@ module Qoi
   end
 
   struct QOIHeader
-    property width            : UInt32
-    property height           : UInt32
-    property channels         : QOIChannel
-    property colorspace       : QOIColorSpace
-    def initialize(@width, @height, @channels, @colorspace)
-      width      == 0 && throw_invalid_header_width(width)
-      height     == 0 && throw_invalid_header_height(height)
-      channels.value < 3 || channels.value > 4 && throw_invalid_header_channels(channels)
-      colorspace.value > 1 && throw_invalid_header_colorspace(colorspace)
+    getter width            : UInt32
+    getter height           : UInt32
+    getter channels         : QOIChannel
+    getter colorspace       : QOIColorSpace
+    def initialize(@width : UInt32, @height : UInt32, @channels : QOIChannel, @colorspace : QOIColorSpace)
+      if @width == 0 
+        raise QOIError.new "invalid width in header, got #{width}"
+      end
+      if @height == 0 
+        raise QOIError.new "invalid height in header, got #{height}"
+      end
+      if 4 < @channels.value < 3
+        raise QOIError.new "invalid channels in header, got #{channels}"
+      end
+      if @colorspace.value > 1
+        raise QOIError.new "invalid colorspace in header, got #{colorspace}"
+      end
     end
   end
 end
