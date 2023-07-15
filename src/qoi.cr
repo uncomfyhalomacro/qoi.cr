@@ -54,7 +54,7 @@ module Qoi
       if @height == 0 
         throw_invalid_header_height(@height)
       end
-      if 4 < @channels.value < 3
+      if @channels.value < 3 || @channels.value > 4
         throw_invalid_header_channels(@channels.value)
       end
       if @colorspace.value > 1
@@ -93,6 +93,7 @@ module Qoi
       raise QOIError.new "unexepcted end of file"
     end
   end
-
+    
   # TODO: add decoder and encoders
 end
+
