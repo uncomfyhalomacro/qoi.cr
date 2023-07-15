@@ -60,6 +60,7 @@ module Qoi
       if @colorspace.value > 1
         throw_invalid_header_colorspace(@colorspace.value)
       end
+
     end
 
     class QOIError < Exception
@@ -92,4 +93,6 @@ module Qoi
       raise QOIError.new "unexepcted end of file"
     end
   end
+
+  # TODO: add decoder and encoders
 end
