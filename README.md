@@ -1,10 +1,6 @@
 # qoi
 
-A [crystal](https://github.com/crystal-lang/crystal) implementation of the [Quick OK Image](https://qoiformat.org/) format.
-
-## Status
-
-🚧 WIP 🚧
+A [Crystal](https://github.com/crystal-lang/crystal) implementation of the [Quick OK Image](https://qoiformat.org/) format.
 
 ## Installation
 
@@ -22,13 +18,11 @@ A [crystal](https://github.com/crystal-lang/crystal) implementation of the [Quic
 
 ```crystal
 require "qoi"
+
+module YourModule
+  include Qoi
+end
 ```
-
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
 
 ## Contributing
 
