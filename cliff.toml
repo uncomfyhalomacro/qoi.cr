@@ -59,6 +59,7 @@ commit_parsers = [
   { message = "^deps", group = "Dependencies" },
   { message = "^cliff", group = "Cliff Config", skip = true },
   { message = "^changelog", group = "Changelog", skip = true },
+  { message = "^todo", group = "TODOs for possible features or fixes", skip = true},
   { body = ".*security", group = "Security" },
 ]
 # protect breaking changes from being skipped due to matching a skipping commit_parser
