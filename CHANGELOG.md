@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file.
 
 - Initial commit ([f4c0af0](https://github.com/uncomfyhalomacro/qoi.cr/commit/f4c0af01c30a00e988ec77cbea2a9649b18a3717))
 - Overload initialize function to allow UInt8 values for channels and colorspaces ([ac91e18](https://github.com/uncomfyhalomacro/qoi.cr/commit/ac91e1811491499315570db1e24bc22b41c5c034))
+- Fix typo ([b723c32](https://github.com/uncomfyhalomacro/qoi.cr/commit/b723c32d634569b7c5e9dba940bbbe1e3ac0ee2f))
 
 ### Refactor
 
@@ -29,8 +30,4 @@ All notable changes to this project will be documented in this file.
 - Improve test for succeses and errors ([a7444c4](https://github.com/uncomfyhalomacro/qoi.cr/commit/a7444c4764be97479575106fc835afe5cecd3b30))
 - Split errors for colorspaces and channels ([5ca2c5f](https://github.com/uncomfyhalomacro/qoi.cr/commit/5ca2c5fe26b57614d2ea9eb77acecd2bed4b498f))
 - Add tests for overloaded initialization ([5bbde36](https://github.com/uncomfyhalomacro/qoi.cr/commit/5bbde36efdd9872af0c28a77c88aa7d5ca6e1686))
-
-### Todo
-
-- Add decoder and encoders ([a7c636a](https://github.com/uncomfyhalomacro/qoi.cr/commit/a7c636a754f776a4db59c2fc2347a3280ad3fdee))
 
