@@ -18,9 +18,14 @@ describe Qoi do
     end
   end
   describe "#successes" do
-    it "is succesful with correct params" do
-      Qoi::QOI_MAGIC.should eq 0x716f6966
+    it "is succesful with valid colorspaces" do
       header = Qoi::QOIHeader.new(1_u32, 1_u32, Qoi::QOIChannel.new(0x04), Qoi::QOIColorSpace.new(0x01))
+    end
+    it "is successful with UInt8 values instead of QOIChannel or QOIColorspace dot new" do
+      header = Qoi::QOIHeader.new(1, 1, 4, 1)
+    end
+    it "is the correct Qoi Magic value" do
+      Qoi::QOI_MAGIC.should eq 0x716f6966
     end
   end
 end
