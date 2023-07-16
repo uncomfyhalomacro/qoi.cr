@@ -28,7 +28,7 @@ All notable changes to this project will be documented in this file.
 - Add a dummy test ([c6ad1c9](https://github.com/uncomfyhalomacro/qoi.cr/commit/c6ad1c9f3a283983defe0341632325a29e724f6d))
 - Improve test for succeses and errors ([a7444c4](https://github.com/uncomfyhalomacro/qoi.cr/commit/a7444c4764be97479575106fc835afe5cecd3b30))
 - Split errors for colorspaces and channels ([5ca2c5f](https://github.com/uncomfyhalomacro/qoi.cr/commit/5ca2c5fe26b57614d2ea9eb77acecd2bed4b498f))
-- Add tests for overloaded initialization ([7118355](https://github.com/uncomfyhalomacro/qoi.cr/commit/711835554924c9c12aff511c16e6eb97e654b87a))
+- Add tests for overloaded initialization ([5bbde36](https://github.com/uncomfyhalomacro/qoi.cr/commit/5bbde36efdd9872af0c28a77c88aa7d5ca6e1686))
 
 ### Todo
 
