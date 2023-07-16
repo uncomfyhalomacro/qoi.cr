@@ -62,6 +62,23 @@ module Qoi
       end
 
     end
+    
+    def initialize(@width : UInt32, @height : UInt32, channels : UInt8 , colorspace : UInt8)
+      if @width == 0
+        throw_invalid_header_width(@width)
+      end
+      if @height == 0 
+        throw_invalid_header_height(@height)
+      end
+      if channels < 3 || channels > 4
+        throw_invalid_header_channels(channels)
+      end
+      if colorspace > 1
+        throw_invalid_header_colorspace(colorspace)
+      end
+      @channels = QOIChannel.new(channels)
+      @colorspace = QOIColorSpace.new(colorspace)
+    end
 
     class QOIError < Exception
       def initialize(msg : String)
