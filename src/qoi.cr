@@ -107,7 +107,7 @@ module Qoi
     end
 
     def throw_unexpected_eof()
-      raise QOIError.new "unexepcted end of file"
+      raise QOIError.new "unexpected end of file"
     end
   end
     
