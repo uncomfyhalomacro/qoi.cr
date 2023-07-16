@@ -35,3 +35,7 @@ end
 ## Contributors
 
 - [Soc Virnyl S. Estela](https://github.com/uncomfyhalomacro) - creator and maintainer
+
+# Relevant implementations I took ideas from
+
+- [QOI.jl](https://github.com/KristofferC/QOI.jl)
