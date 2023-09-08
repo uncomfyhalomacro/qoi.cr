@@ -1,6 +1,6 @@
 # qoi
 
-A [Crystal](https://github.com/crystal-lang/crystal) implementation of the [Quick OK Image](https://qoiformat.org/) format.
+A [Crystal](https://github.com/crystal-lang/crystal) implementation of the [Quite OK Image](https://qoiformat.org/) format.
 
 ## Installation
 
